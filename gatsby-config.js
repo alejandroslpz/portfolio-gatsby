@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: `http://backend-aleeslpz.herokuapp.com`,
         queryLimit: 1000,
         contentTypes: [`projects`, `categories`],
       },

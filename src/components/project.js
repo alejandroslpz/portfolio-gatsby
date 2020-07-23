@@ -15,7 +15,6 @@ export const query = graphql`
       nodes {
         Name
         Description
-        Date
         Resume
         Site
         Repository
