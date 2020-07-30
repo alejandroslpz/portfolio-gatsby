@@ -1,10 +1,10 @@
 import React from "react"
-import Navegacion from "./navegacion"
+import Navigation from "./nav/Navigation"
 
 const Header = () => {
   return (
     <header>
-      <Navegacion />
+      <Navigation />
     </header>
   )
 }
