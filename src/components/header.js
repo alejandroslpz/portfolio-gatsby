@@ -1,5 +1,5 @@
 import React from "react"
-import Navigation from "./nav/Navigation"
+import Navigation from "./navigation"
 
 const Header = () => {
   return (
