@@ -15,6 +15,12 @@ const ContactBox = styled.div`
 `
 
 const ContactForm = () => {
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   const [emailsubmit, setEmail] = useState(false)
 
   const formik = useFormik({
@@ -41,7 +47,7 @@ const ContactForm = () => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: { "form-name": "contact", values },
+        body: encode({ "form-name": "contact-demo", ...values }),
       })
         .then(() => alert("Success!"))
         .catch(error => alert(error))
