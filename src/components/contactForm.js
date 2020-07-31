@@ -38,7 +38,7 @@ const ContactForm = () => {
       message: Yup.string().required("Message is required"),
     }),
 
-    onSubmit: values => {
+    onSubmit: (values, actions) => {
       setEmail(true)
       setTimeout(() => {
         setEmail(false)
@@ -49,8 +49,16 @@ const ContactForm = () => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact-demo", ...values }),
       })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error))
+        .then(() => {
+          alert("Success")
+          actions.resetForm()
+        })
+        .catch(() => {
+          alert("Error")
+        })
+        .finally(() => actions.setSubmitting(false))
+
+      console.log(encode)
     },
   })
 
@@ -89,7 +97,7 @@ const ContactForm = () => {
             <form
               name="contact"
               method="post"
-              data-netlify="true"
+              data-netlify={true}
               data-netlify-honeypot="bot-field"
               className="mx-4 mb-3"
               onSubmit={formik.handleSubmit}
