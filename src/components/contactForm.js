@@ -74,12 +74,14 @@ const ContactForm = () => {
           </div>
           <div className="column is-6">
             <form
-              name="Contact Form"
+              name="contact"
               className="mx-4 mb-3"
               data-netlify="true"
-              method="POST"
+              data-netlify-honeypot="bot-field"
+              method="post"
               onSubmit={formik.handleSubmit}
             >
+              <input type="hidden" name="form-name" value="contact" />
               {formik.touched.name && formik.errors.name ? (
                 <span className="tag is-warning mb-1">
                   {formik.errors.name}
