@@ -37,23 +37,37 @@ const NavigationLink = styled(Link)`
   text-decoration: none;
 `
 
-const ResponsiveNav = ({ open }) => {
+const ResponsiveNav = ({ open, setOpen }) => {
+  const closeBurger = () => {
+    setOpen(!open)
+  }
+
   return (
     <Ul open={open}>
       <li>
-        <NavigationLink to={"/"}>Home</NavigationLink>
+        <NavigationLink to={"/"} onClick={e => closeBurger()}>
+          Home
+        </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#about"}>About</NavigationLink>
+        <NavigationLink to={"/#about"} onClick={e => closeBurger()}>
+          About
+        </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#skills"}>Skills</NavigationLink>
+        <NavigationLink to={"/#skills"} onClick={e => closeBurger(e)}>
+          Skills
+        </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#portfolio"}>Portfolio</NavigationLink>
+        <NavigationLink to={"/#portfolio"} onClick={e => closeBurger()}>
+          Portfolio
+        </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#contact"}>Contact</NavigationLink>
+        <NavigationLink to={"/#contact"} onClick={e => closeBurger()}>
+          Contact
+        </NavigationLink>
       </li>
     </Ul>
   )

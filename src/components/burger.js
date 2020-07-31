@@ -49,7 +49,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <ResponsiveNav open={open} />
+      <ResponsiveNav open={open} setOpen={setOpen} />
     </>
   )
 }
