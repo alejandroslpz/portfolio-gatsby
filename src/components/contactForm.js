@@ -34,6 +34,15 @@ const ContactForm = () => {
 
     onSubmit: values => {
       console.log(values)
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ values }),
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error))
+
       setEmail(true)
       setTimeout(() => {
         setEmail(false)
