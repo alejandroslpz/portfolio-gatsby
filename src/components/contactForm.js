@@ -33,20 +33,18 @@ const ContactForm = () => {
     }),
 
     onSubmit: values => {
-      console.log(values)
-
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ values }),
-      })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error))
-
       setEmail(true)
       setTimeout(() => {
         setEmail(false)
       }, 6000)
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", values }),
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error))
     },
   })
 
@@ -84,10 +82,10 @@ const ContactForm = () => {
           <div className="column is-6">
             <form
               name="contact"
-              className="mx-4 mb-3"
+              method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              method="post"
+              className="mx-4 mb-3"
               onSubmit={formik.handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -122,8 +120,8 @@ const ContactForm = () => {
                 <p className="control has-icons-left">
                   <input
                     id="email"
-                    name="email"
                     type="email"
+                    name="email"
                     className={
                       formik.errors.email ? `input is-danger` : `input`
                     }
