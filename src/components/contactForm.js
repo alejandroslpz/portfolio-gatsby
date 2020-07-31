@@ -41,7 +41,7 @@ const ContactForm = () => {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", name, email, message }),
+        body: values,
       })
         .then(() => alert("Success!"))
         .catch(error => alert(error))
