@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
@@ -15,6 +15,8 @@ const ContactBox = styled.div`
 `
 
 const ContactForm = () => {
+  const [emailsubmit, setEmail] = useState(false)
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -32,12 +34,19 @@ const ContactForm = () => {
 
     onSubmit: values => {
       console.log(values)
+      setEmail(true)
+      setTimeout(() => {
+        setEmail(false)
+      }, 6000)
     },
   })
 
-  const { emailImage } = useStaticQuery(graphql`
+  const { emailImage, emailGif } = useStaticQuery(graphql`
     query {
       emailImage: file(relativePath: { eq: "mail1.png" }) {
+        publicURL
+      }
+      emailGif: file(relativePath: { eq: "mail.gif" }) {
         publicURL
       }
     }
@@ -57,14 +66,20 @@ const ContactForm = () => {
               `}
             >
               <img
-                src={emailImage.publicURL}
+                src={emailsubmit ? emailGif.publicURL : emailImage.publicURL}
                 alt="Contact Me Email"
                 className="p-4"
               />
             </div>
           </div>
           <div className="column is-6">
-            <form className="mx-4 mb-3" onSubmit={formik.handleSubmit}>
+            <form
+              name="contact"
+              className="mx-4 mb-3"
+              onSubmit={formik.handleSubmit}
+              method="POST"
+              data-netlify="true"
+            >
               {formik.touched.name && formik.errors.name ? (
                 <span className="tag is-warning mb-1">
                   {formik.errors.name}
