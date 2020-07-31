@@ -98,7 +98,6 @@ const ContactForm = () => {
               name="contact"
               method="post"
               data-netlify={true}
-              data-netlify-honeypot="bot-field"
               className="mx-4 mb-3"
               onSubmit={formik.handleSubmit}
             >
