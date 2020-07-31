@@ -76,7 +76,7 @@ const ContactForm = () => {
             <form
               name="Contact Form"
               className="mx-4 mb-3"
-              netlify
+              data-netlify="true"
               method="POST"
               onSubmit={formik.handleSubmit}
             >
