@@ -74,11 +74,11 @@ const ContactForm = () => {
           </div>
           <div className="column is-6">
             <form
-              name="contact"
+              name="Contact Form"
               className="mx-4 mb-3"
-              onSubmit={formik.handleSubmit}
+              netlify
               method="POST"
-              data-netlify="true"
+              onSubmit={formik.handleSubmit}
             >
               {formik.touched.name && formik.errors.name ? (
                 <span className="tag is-warning mb-1">
@@ -89,6 +89,7 @@ const ContactForm = () => {
                 <p className="control has-icons-left">
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     className={formik.errors.name ? `input is-danger` : `input`}
                     placeholder="Name"
@@ -110,6 +111,7 @@ const ContactForm = () => {
                 <p className="control has-icons-left">
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     className={
                       formik.errors.email ? `input is-danger` : `input`
@@ -133,6 +135,7 @@ const ContactForm = () => {
                 <p className="control has-icons-left">
                   <textarea
                     id="message"
+                    name="message"
                     className={
                       formik.errors.message
                         ? `textarea input is-danger`
