@@ -37,9 +37,17 @@ const Ul = styled.ul`
 const NavigationLink = styled(Link)`
   color: white;
   text-decoration: none;
+
+  &:hover {
+    color: hsl(0, 0%, 71%);
+  }
 `
 const Icon = styled(FontAwesomeIcon)`
   margin-right: 7px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `
 
 const ResponsiveNav = ({ open, setOpen }) => {
@@ -51,31 +59,30 @@ const ResponsiveNav = ({ open, setOpen }) => {
     <Ul open={open}>
       <li>
         <NavigationLink to={"/"} onClick={e => closeBurger()}>
-          {open ? <Icon icon="home" /> : null}
-          Home
+          <Icon icon="home" /> Home
         </NavigationLink>
       </li>
       <li>
         <NavigationLink to={"/#about"} onClick={e => closeBurger()}>
-          {open ? <Icon icon="user" /> : null}
+          <Icon icon="user" />
           About
         </NavigationLink>
       </li>
       <li>
         <NavigationLink to={"/#skills"} onClick={e => closeBurger(e)}>
-          {open ? <Icon icon="award" /> : null}
+          <Icon icon="award" />
           Skills
         </NavigationLink>
       </li>
       <li>
         <NavigationLink to={"/#portfolio"} onClick={e => closeBurger()}>
-          {open ? <Icon icon="folder-open" /> : null}
+          <Icon icon="folder-open" />
           Portfolio
         </NavigationLink>
       </li>
       <li>
         <NavigationLink to={"/#contact"} onClick={e => closeBurger()}>
-          {open ? <Icon icon="envelope" /> : null}
+          <Icon icon="envelope" />
           Contact
         </NavigationLink>
       </li>
