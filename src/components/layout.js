@@ -1,11 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import Helmet from "react-helmet"
 import { Global, css } from "@emotion/core"
 import Header from "./header"
 import Footer from "./footer"
+import ButtonUp from "./buttonUp"
 import "../components/fontAwesome"
 
 const Layout = ({ children }) => {
+  const [display, setDisplay] = useState(false)
+
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 550) {
+      setDisplay(true)
+    } else {
+      setDisplay(false)
+    }
+  })
+
   return (
     <>
       <Global
@@ -36,6 +47,7 @@ const Layout = ({ children }) => {
         ></link>
       </Helmet>
       <Header />
+      {display ? <ButtonUp /> : null}
       {children}
       <Footer />
     </>

@@ -8,6 +8,8 @@ import {
   faComment,
   faGlobe,
   faArrowUp,
+  faHome,
+  faFolderOpen,
 } from "@fortawesome/free-solid-svg-icons"
 import {
   faLinkedinIn,
@@ -34,5 +36,7 @@ library.add(
   faEnvelope,
   faComment,
   faGlobe,
-  faArrowUp
+  faArrowUp,
+  faHome,
+  faFolderOpen
 )
