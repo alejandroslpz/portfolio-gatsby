@@ -45,7 +45,7 @@ const Portfolio = () => {
             </li>
             <li>
               <a onClick={() => setFilter("others")}>
-                <Enlace>Otros</Enlace>
+                <Enlace>Others</Enlace>
               </a>
             </li>
           </ul>
