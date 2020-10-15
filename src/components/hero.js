@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
 import Typical from "react-typical"
 import styled from "@emotion/styled"
+import { Link } from "gatsby"
 
 const Phrase = styled.p`
   position: absolute;
@@ -66,9 +67,9 @@ const Hero = () => {
               <h2 className="subtitle has-text-centered">
                 Front - End Developer
               </h2>
-              <a className="button is-danger" href="#contact">
+              <Link className="button is-danger" to="#contact">
                 <strong>Contact Me</strong>
-              </a>
+              </Link>
             </div>
             <div className="column is-12-mobile is-6-tablet">
               <div className="monitor container">

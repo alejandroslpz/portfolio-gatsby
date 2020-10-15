@@ -47,6 +47,10 @@ const Layout = ({ children }) => {
           integrity="sha256-aPeK/N8IHpHsvPBCf49iVKMdusfobKo2oxF8lRruWJg="
           crossorigin="anonymous"
         ></link>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        ></link>
       </Helmet>
       <Header />
       {display ? <ButtonUp /> : null}

@@ -8,6 +8,7 @@ const usePortfolio = () => {
           Name
           id
           Description
+          Type
           Categories {
             categories {
               Name
@@ -30,6 +31,7 @@ const usePortfolio = () => {
     name: project.Name,
     image: project.Image,
     description: project.Description,
+    type: project.Type,
   }))
 }
 

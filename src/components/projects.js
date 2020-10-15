@@ -26,7 +26,7 @@ const Projects = ({ project }) => {
   const { name, image, description } = project
 
   return (
-    <div className="column is-4-tablet">
+    <div className="column is-4-tablet animate__animated animate__zoomIn">
       <div
         className="container"
         css={css`
