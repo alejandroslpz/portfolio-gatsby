@@ -42,6 +42,17 @@ export const query = graphql`
             Name
           }
         }
+        Examples {
+          formats {
+            large {
+              sharp: childImageSharp {
+                fluid(maxWidth: 1200) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -60,12 +71,12 @@ const Project = ({
     Resume,
     Site,
     Repository,
+    Examples,
   } = nodes[0]
-
-  console.log(nodes)
 
   const settings = {
     dots: true,
+    fade: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -88,7 +99,10 @@ const Project = ({
                   <p className="title">Technologies</p>
                   <div className="tags">
                     {Categories[0].categories.map(categorie => (
-                      <span className="tag is-danger is-medium">
+                      <span
+                        key={categorie.Name}
+                        className="tag is-danger is-medium"
+                      >
                         {categorie.Name}
                       </span>
                     ))}
@@ -120,7 +134,12 @@ const Project = ({
                   <p className="title">Preview</p>
                   <Carousel className="mx-4">
                     <Slider {...settings}>
-                      <Slide fluid={Img.sharp.fluid} alt="Project Image" />
+                      {Examples.map(example => (
+                        <Slide
+                          fluid={example.formats.large.sharp.fluid}
+                          alt="Ejemplo de Imagen"
+                        />
+                      ))}
                     </Slider>
                   </Carousel>
                 </Box>

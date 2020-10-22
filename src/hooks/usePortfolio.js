@@ -26,8 +26,6 @@ const usePortfolio = () => {
     }
   `)
 
-  console.log(portfolio)
-
   return portfolio.allStrapiProjects.nodes.map(project => ({
     id: project.id,
     name: project.Name,
