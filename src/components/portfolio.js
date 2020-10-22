@@ -69,9 +69,19 @@ const Portfolio = () => {
                 <>
                   {filterprojects === "reactNative" ? (
                     <>
-                      {reactNativeProjects.map(project => (
-                        <Projects key={project.id} project={project} />
-                      ))}
+                      {reactNativeProjects.length !== 0 ? (
+                        <>
+                          {reactNativeProjects.map(project => (
+                            <Projects key={project.id} project={project} />
+                          ))}
+                        </>
+                      ) : (
+                        <div className="column has-text-centered">
+                          <h3 className="title is-4 my-6 animate__animated animate__zoomIn">
+                            Coming soon...
+                          </h3>
+                        </div>
+                      )}
                     </>
                   ) : (
                     <>

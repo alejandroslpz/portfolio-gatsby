@@ -4,9 +4,21 @@ import Layout from "./layout"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const Box = styled.div`
   background-color: hsl(0, 0%, 94%) !important;
+`
+
+const Slide = styled(Image)`
+  max-width: 700px;
+`
+
+const Carousel = styled.div`
+  padding-top: 50px;
+  max-width: 700px;
 `
 
 export const query = graphql`
@@ -49,6 +61,17 @@ const Project = ({
     Site,
     Repository,
   } = nodes[0]
+
+  console.log(nodes)
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+
   return (
     <Layout>
       <main>
@@ -95,7 +118,11 @@ const Project = ({
               <div className="tile is-parent">
                 <Box className="tile is-child box">
                   <p className="title">Preview</p>
-                  <Image fluid={Img.sharp.fluid} alt="Project Image" />
+                  <Carousel className="mx-4">
+                    <Slider {...settings}>
+                      <Slide fluid={Img.sharp.fluid} alt="Project Image" />
+                    </Slider>
+                  </Carousel>
                 </Box>
               </div>
             </div>
