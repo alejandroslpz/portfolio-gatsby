@@ -58,30 +58,30 @@ const ResponsiveNav = ({ open, setOpen }) => {
   return (
     <Ul open={open}>
       <li>
-        <NavigationLink to={"/"} onClick={e => closeBurger()}>
+        <NavigationLink to="/" onClick={e => closeBurger()}>
           <Icon icon="home" /> Home
         </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#about"} onClick={e => closeBurger()}>
+        <NavigationLink to="/#about" onClick={e => closeBurger()}>
           <Icon icon="user" />
           About
         </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#skills"} onClick={e => closeBurger(e)}>
+        <NavigationLink to="/#skills" onClick={e => closeBurger(e)}>
           <Icon icon="award" />
           Skills
         </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#portfolio"} onClick={e => closeBurger()}>
+        <NavigationLink to="/#portfolio" onClick={e => closeBurger()}>
           <Icon icon="folder-open" />
           Portfolio
         </NavigationLink>
       </li>
       <li>
-        <NavigationLink to={"/#contact"} onClick={e => closeBurger()}>
+        <NavigationLink to="/#contact" onClick={e => closeBurger()}>
           <Icon icon="envelope" />
           Contact
         </NavigationLink>
