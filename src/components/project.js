@@ -42,17 +42,6 @@ export const query = graphql`
             Name
           }
         }
-        Examples {
-          formats {
-            large {
-              sharp: childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -66,8 +55,8 @@ const Project = ({
   const {
     Name,
     Description,
-    Img,
     Categories,
+    Img,
     Resume,
     Site,
     Repository,
@@ -134,12 +123,11 @@ const Project = ({
                   <p className="title">Preview</p>
                   <Carousel className="mx-4">
                     <Slider {...settings}>
-                      {Examples.map(example => (
-                        <Slide
-                          fluid={example.formats.large.sharp.fluid}
-                          alt="Ejemplo de Imagen"
-                        />
-                      ))}
+                      <Slide
+                        key={Img.sharp.fluid.src}
+                        fluid={Img.sharp.fluid}
+                        alt="Ejemplo de Imagen"
+                      />
                     </Slider>
                   </Carousel>
                 </Box>
